@@ -1,0 +1,16 @@
+body{
+    background-image: linear-gradient(rgb(254, 213, 220),aliceblue,rgb(255, 244, 220));
+    font-family:cursive;
+    color: rgb(74, 62, 46);
+}
+header{
+    border: 7px dotted rgb(255, 151, 186);
+    background-color: rgb(254, 240, 222);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+}
