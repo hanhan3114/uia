@@ -6,20 +6,20 @@
     </head>
     <body>
         <header>
-            <img src="./logo.png" width="90px" height="90px">
+            <img src="./logo.png" width="90px" height="90px" id="logo">
             <p>Dori Sheep</p> 
-            <a href="">Home</a> 
-            <a href="">About</a> 
-            <a href="">Services</a> 
-            <a href="">Contact</a> 
+            <p>Home</p> 
+            <p>About</p> 
+            <p>Services</p> 
+            <p>Contact</p>
+            <button id="modebtn"> Switch mode</button>
         </header>
         <main>
-            <section>
+            <section class="cover">
                 <h1>Softer than a sheep's dream</h1>
-                <img src="./background.png">
             </section>
 
-            <section>
+            <section class="intro">
                 <h1>About Sheep Plusie</h1>
                 <p>A sheep plushie is a stuffed toy designed to resemble a sheep, 
                     often made from soft, plush fabric and filled with materials like polyester fiberfill.</p>
@@ -28,24 +28,24 @@
                 <img src="./sheep.png">
             </section>
 
-            <section>
-                <div>
-                    <img src="./120.png">
-                    <h2> Couple Sheep</h2>
-                    <p> 120$ </p>
+            <section class="product">
+                <div class="couple">
+                    <img src="./120.png" width="230px" height="230px" class="sheep-img" data-id="1">
+                    <h2>Couple Sheep</h2>
+                    <div class="product-info"></div>
                 </div>
-                <div>
-                    <img src="./60.png">
-                    <h2> Fat Sheep</h2>
-                    <p> 60$ </p>
+                <div class="fat">
+                    <img src="./60.png" width="230px" height="230px" class="sheep-img" data-id="2">
+                    <h2>Fat Sheep</h2>
+                    <div class="product-info"></div>
                 </div>
-                <div>
-                    <img src="./65.png">
-                    <h2> Yellow Sheep</h2>
-                    <p> 65$ </p>
+                <div class="yellow">
+                    <img src="./65.png" width="230px" height="230px" class="sheep-img" data-id="3">
+                    <h2>Yellow Sheep</h2>
+                    <div class="product-info"></div>
                 </div>
             </section>
-            <section>
+            <section class="contact">
                 <form>
                     <h1>Contact us</h1>
                     <input type="text" placeholder="Enter your name"> <br>
@@ -56,7 +56,7 @@
                 </form>
             </section>
         </main>
-        <footer>
+        <footer class="info">
             <h1>Information</h1>
             <div class="footer">
                 <p>Adress: 793/55/10/9 Tran Xuan Soan</p>
@@ -65,5 +65,7 @@
                 <p>Opening hours: Mon - Sat (9h - 20h)</p>
             </div>
         </footer>
+        <script src="script.js"></script>
     </body>
+    
 </html>

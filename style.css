@@ -3,6 +3,11 @@ body{
     font-family:cursive;
     color: rgb(74, 62, 46);
 }
+
+#logo {
+    animation: logoScroll 4s linear infinite;
+}
+
 header{
     border: 7px dotted rgb(255, 151, 186);
     background-color: rgb(254, 240, 222);
@@ -13,4 +18,165 @@ header{
     justify-content: space-evenly;
     align-items: center;
     font-size: 20px;
+    padding: 10px;
+}
+
+.dark {
+    background-image: linear-gradient(rgb(90, 6, 90),rgb(49, 49, 75),rgb(56, 121, 118));
+    color:aliceblue;
+}
+
+.dark header{
+    border: 7px dotted rgb(221, 163, 225);
+    background-color: rgb(91, 52, 95);
+}
+
+.dark .product {
+    background-color: rgb(70, 40, 80);
+    border: 7px dotted rgb(221, 163, 225);
+}
+
+.dark .product h2 {
+    color: rgb(255, 220, 240);
+}
+
+.dark .product-info {
+    background-color: rgb(91, 52, 95);
+    color: aliceblue;
+}
+
+.product{
+    border: 7px dotted rgb(255, 151, 186);
+    background-color: rgb(254, 240, 222);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.couple{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px 0 30px;
+}
+
+.fat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px 0 30px;
+}
+
+.yellow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px 0 30px;
+}
+
+.cover{
+    background-image: url("./background.png");
+    background-size: cover;
+    background-position: center;
+    padding: 100px;
+    border-radius:60px ;
+    margin-top:30px ;
+}
+
+.cover h1{
+    text-align: center;
+    color: palevioletred
+}
+
+#modebtn {
+    background-color: blanchedalmond;
+    color: rgb(83, 16, 27);
+}
+.contact form{
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.product {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.product-info {
+    padding: 10px;
+    background-color: rgb(254, 240, 222);
+    border-radius: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.product-info p {
+    word-wrap: break-word;
+    white-space: normal;
+    transition: opacity 0.3s ease;
+}
+
+.sheep-img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.contact form {
+    background-color: rgb(254, 240, 222);
+    padding: 30px;
+    width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.contact h1 {
+    margin-bottom: 20px;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-family: cursive;
+}
+
+.contact textarea {
+    resize: none;
+    height: 80px;
+}
+
+.contact input[type="submit"] {
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: rgb(255, 151, 186);
 }
