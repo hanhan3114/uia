@@ -1,18 +1,24 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Dori Sheep company</title>
+        <title>Dori Sheep Store</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <img src="./logo.png" width="90px" height="90px" id="logo">
-            <p>Dori Sheep</p> 
-            <p>Home</p> 
-            <p>About</p> 
-            <p>Services</p> 
-            <p>Contact</p>
+            <div class="brand">
+                <img src="./assets/logo.png" width="90px" height="90px" id="logo">
+                <p>Dori Sheep</p>
+            </div> 
+            <a href="./index.html">Home</a> 
+            <a href="./about.html">About</a> 
+            <a href="/products.html">Products</a> 
+            <a href="/contact.html">Contact</a>
             <button id="modebtn"> Switch mode</button>
+            <div class="cart">
+                <img src="./assets/cart.png"  width="40px" height="40px">
+                <p class="cart-number">0</p>
+            </div>
         </header>
         <main>
             <section class="cover">
@@ -25,36 +31,27 @@
                     often made from soft, plush fabric and filled with materials like polyester fiberfill.</p>
                 <p>Sheep plushies come in various forms, including realistic lambs, cartoonish representations like Shaun the Sheep,
                         and even heatable lavender-scented plushies.</p> 
-                <img src="./sheep.png">
+                <img src="./assets/sheep.png">
             </section>
 
             <section class="product">
                 <div class="couple">
-                    <img src="./120.png" width="230px" height="230px" class="sheep-img" data-id="1">
+                    <img src="./assets/products/120.png" width="230px" height="230px" class="sheep-img" data-id="1">
                     <h2>Couple Sheep</h2>
                     <div class="product-info"></div>
                 </div>
                 <div class="fat">
-                    <img src="./60.png" width="230px" height="230px" class="sheep-img" data-id="2">
+                    <img src="./assets/products/60.png" width="230px" height="230px" class="sheep-img" data-id="2">
                     <h2>Fat Sheep</h2>
                     <div class="product-info"></div>
                 </div>
                 <div class="yellow">
-                    <img src="./65.png" width="230px" height="230px" class="sheep-img" data-id="3">
+                    <img src="./assets/products/65.png" width="230px" height="230px" class="sheep-img" data-id="3">
                     <h2>Yellow Sheep</h2>
                     <div class="product-info"></div>
                 </div>
             </section>
-            <section class="contact">
-                <form>
-                    <h1>Contact us</h1>
-                    <input type="text" placeholder="Enter your name"> <br>
-                    <input type="tel" placeholder="Enter your phone number"> <br>
-                    <input type="text" placeholder="Enter your email"> <br>
-                    <textarea placeholder="Enter your message"></textarea> <br>
-                    <input type="submit" value="Send"> 
-                </form>
-            </section>
+           
         </main>
         <footer class="info">
             <h1>Information</h1>

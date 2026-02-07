@@ -7,6 +7,32 @@ body{
 #logo {
     animation: logoScroll 4s linear infinite;
 }
+ 
+.brand{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(196, 77, 77);
+    text-shadow: 1px 1px 0 #eeb8b8;
+    font-weight: 600;
+}
+.cart{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cart-number{
+    background-color: rgb(252, 252, 252);
+    color: rgb(74, 62, 46);
+    border: 1px solid #fb7a7a;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    font-size: 15px;
+    align-self: flex-start;
+}
 
 header{
     border: 7px dotted rgb(255, 151, 186);
@@ -19,6 +45,9 @@ header{
     align-items: center;
     font-size: 20px;
     padding: 10px;
+    text-decoration: none;
+    position: sticky;
+    top: 0;
 }
 
 .dark {
@@ -77,7 +106,7 @@ header{
 }
 
 .cover{
-    background-image: url("./background.png");
+    background-image: url("./assets/background.png");
     background-size: cover;
     background-position: center;
     padding: 100px;
@@ -179,4 +208,5 @@ h1 {
 
 .contact input[type="submit"]:hover {
     background-color: rgb(255, 151, 186);
+
 }
