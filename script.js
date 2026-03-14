@@ -1,6 +1,3 @@
-// Welcome
-alert('Welcome to Dori shop!')
-
 // Logo animation
 let logo = document.getElementById("logo");
 
@@ -26,18 +23,30 @@ button.addEventListener('click',function(){
     }
 })
 
+let correct = "sheep";
 
-let correct = "sheep"
 function login(){
-    let input = ""
+    let input = "";
     while(input != correct){
-        input = prompt('Enter password:')
+        input = prompt("Enter password:");
         if (input != correct && input != ""){
-            alert('Wrong password. Try again!')
+            alert("Wrong password. Try again!");
         }
     }
+
+    localStorage.setItem("sitePassword", "verified");
+
+    // show welcome only first time
+    if (!localStorage.getItem("welcomeShown")){
+        alert("Welcome to Dori Shop!");
+        localStorage.setItem("welcomeShown", "yes");
+    }
 }
-login()
+
+// check login
+if (localStorage.getItem("sitePassword") !== "verified"){
+    login();
+}
 
 class Product {
     constructor(id, name, price, description) {
@@ -119,7 +128,7 @@ const db = getFirestore(app);
 // contact form
 const contact_form = document.getElementById("contact-form")
 
-contact_form.addEventListener("sudmit", async (e) => {
+contact_form.addEventListener("submit", async (e) => {
     e.preventDefault();
     
     const contact_name = document.getElementById("contact-name").value
