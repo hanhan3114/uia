@@ -83,6 +83,42 @@ const products = [
         "Yellow Sheep",
         "$65",
         "A bright yellow sheep with a cheerful design."
+    ),
+    new Product(
+        4,
+        "Couple Sheep",
+        "$120",
+        "A cute pair of sheep, perfect for couples or gifts."
+    ),
+    new Product(
+        5,
+        "Fat Sheep",
+        "$60",
+        "A soft and chubby sheep that kids love to hug."
+    ),
+    new Product(
+        6,
+        "Yellow Sheep",
+        "$65",
+        "A bright yellow sheep with a cheerful design."
+    ),
+    new Product(
+        7,
+        "Couple Sheep",
+        "$120",
+        "A cute pair of sheep, perfect for couples or gifts."
+    ),
+    new Product(
+        8,
+        "Fat Sheep",
+        "$60",
+        "A soft and chubby sheep that kids love to hug."
+    ),
+    new Product(
+        9,
+        "Yellow Sheep",
+        "$65",
+        "A bright yellow sheep with a cheerful design."
     )
 ]
 
@@ -90,7 +126,7 @@ let productCards = document.querySelectorAll(".product > div");
 
 productCards.forEach(function (card) {
     card.addEventListener("mouseenter", function () {
-        let img = card.querySelector(".sheep-img");
+        let img = card.querySelector(".product-img");
         let id = img.dataset.id;
 
         let product = products.find(function (item) {

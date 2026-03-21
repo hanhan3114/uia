@@ -60,24 +60,15 @@ header{
     background-color: rgb(91, 52, 95);
 }
 
-.dark .product {
-    background-color: rgb(70, 40, 80);
-    border: 7px dotted rgb(221, 163, 225);
-}
-
 .dark .product h2 {
     color: rgb(255, 220, 240);
 }
 
-.dark .product-info {
-    background-color: rgb(91, 52, 95);
-    color: aliceblue;
+.dark .contact form {
+    background-color: rgb(130, 94, 148);
 }
 
 .product{
-    border: 7px dotted rgb(255, 151, 186);
-    background-color: rgb(254, 240, 222);
-    border-radius: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -150,8 +141,6 @@ h1 {
 
 .product-info {
     padding: 10px;
-    background-color: rgb(254, 240, 222);
-    border-radius: 12px;
     font-size: 14px;
     text-align: center;
 }
@@ -162,7 +151,7 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-.sheep-img {
+.product-img {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
