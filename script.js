@@ -86,39 +86,39 @@ const products = [
     ),
     new Product(
         4,
-        "Couple Sheep",
+        "Ratatouille",
         "$120",
-        "A cute pair of sheep, perfect for couples or gifts."
+        "A cute rat, a tiny rat, a giant hug.."
     ),
     new Product(
         5,
-        "Fat Sheep",
+        "Tiny rat",
         "$60",
-        "A soft and chubby sheep that kids love to hug."
+        "A little friend for a big bond."
     ),
     new Product(
         6,
-        "Yellow Sheep",
+        "Super big rat",design
         "$65",
-        "A bright yellow sheep with a cheerful design."
+        "Round, fluffy, and totally lovely."
     ),
     new Product(
         7,
-        "Couple Sheep",
+        "Small deer",
         "$120",
-        "A cute pair of sheep, perfect for couples or gifts."
+        "Little deer, big warmth."
     ),
     new Product(
         8,
-        "Fat Sheep",
+        "Brown deer",
         "$60",
-        "A soft and chubby sheep that kids love to hug."
+        "Sweet as chocolate, soft as this brown deer."
     ),
     new Product(
         9,
-        "Yellow Sheep",
+        "Big deer",
         "$65",
-        "A bright yellow sheep with a cheerful design."
+        "A big round hug in a little deer."
     )
 ]
 
