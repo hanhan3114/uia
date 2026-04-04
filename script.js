@@ -98,7 +98,7 @@ const products = [
     ),
     new Product(
         6,
-        "Super big rat",design
+        "Super big rat",
         "$65",
         "Round, fluffy, and totally lovely."
     ),
