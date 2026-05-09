@@ -1,3 +1,23 @@
+// FIREBASE IMPORTS
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyDKUsRdorj8eXDfI8mloVy5zZVZl4-K8oo",
+  authDomain: "dori-sheep.firebaseapp.com",
+  databaseURL: "https://dori-sheep-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "dori-sheep",
+  storageBucket: "dori-sheep.firebasestorage.app",
+  messagingSenderId: "293735754391",
+  appId: "1:293735754391:web:9169bda0d24bea935997d2",
+  measurementId: "G-6W9Q89X4CW"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 // Logo animation
 let logo = document.getElementById("logo");
 
@@ -143,23 +163,6 @@ productCards.forEach(function (card) {
     });
 });
 
-// FIREBASE IMPORTS
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyA-GoWPNK94Hn2ENzjF8M9yUd4QH57HM0E",
-  authDomain: "dori-sheep-shop.firebaseapp.com",
-  projectId: "dori-sheep-shop",
-  storageBucket: "dori-sheep-shop.firebasestorage.app",
-  messagingSenderId: "137068014610",
-  appId: "1:137068014610:web:023983397cb15bbaa4fccb"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
 // contact form
 const contact_form = document.getElementById("contact-form")
@@ -188,6 +191,8 @@ contact_form.addEventListener("submit", async (e) => {
         alert("Something went wrong");
     }
 })
+
+
 
 
 

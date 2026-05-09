@@ -18,15 +18,34 @@
       
             <button id="modebtn"> Switch mode</button>
             <div class="cart">
-                <img src="./assets/cart.png"  width="60px" height="60px">
-                <p class="cart-number">0</p>
+                <img src="./assets/cart.png"  width="60px" height="60px" id="cartbtn">
+                <p class="cart-number" id="cart-count">0</p>
             </div>
         </header>
         <main>
             <section class="cover">
                 <h1>Softer than a sheep's dream</h1>
             </section>
-           
+
+            <section>
+                <div id="cart-modal" class="cart-modal">
+                    <div class="cart-content"> 
+                        <h2>Cart</h2>
+                        <button id="close">X</button>
+                        <div id="cart-items"></div>
+                        <h3 id="total-price">Total: $0 </h3>
+                        <form id="contact-form">
+                            <h3>Please fill in your information</h3>
+                            <input type="text" id="customer-name" placeholder="Enter your name" required> <br>
+                            <input type="tel" id="customer-phone" placeholder="Enter your phone number" required> <br>
+                            <input type="text" id="customer-address" placeholder="Enter your address" required> <br>
+                            <textarea id="customer-note" placeholder ="Enter your note (optional)"></textarea> <br>
+                            <input type="submit" value="Buy now!"> 
+                        </form>
+                    </div>
+                </div>
+
+            </section>          
         </main>
         <footer class="info">
             <h1>Information</h1>
