@@ -4,8 +4,22 @@ body{
     color: rgb(74, 62, 46);
 }
 
+body.dark a:visited {
+    color: #ffffff;
+}
+
+body.dark a:hover {
+    color: #ffb6d9;
+}
+
+body a:hover {
+    color: rgb(196, 77, 135);
+}
+
 #logo {
     animation: logoScroll 4s linear infinite;
+    margin-top: 15px;
+    margin-left: 15px
 }
  
 .brand{
@@ -313,15 +327,16 @@ h1 {
 /* cart items */
 .cart-item{
     background-color: rgba(255,255,255,0.7);
-
     border-radius: 20px;
-
     padding: 15px;
+
     margin-bottom: 15px;
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 120px 70px;
     align-items: center;
+
+    gap: 10px;
 
     border: 2px solid rgb(255, 210, 230);
 }
@@ -331,8 +346,8 @@ h1 {
     border: none;
     background-color: rgb(255, 210, 230);
 
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
 
     border-radius: 50%;
 
@@ -351,7 +366,7 @@ h1 {
 #total-price{
     text-align: center;
     margin-top: 20px;
-    color: rgb(188, 72, 130);
+    color: palevioletred;
     font-size: 24px;
 }
 
@@ -422,4 +437,22 @@ h1 {
 .dark #order-form textarea{
     background-color: rgb(180, 145, 200);
     color: white;
+}
+
+.item-name{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.qty-control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.item-price{
+    text-align: right;
+    font-weight: bold;
 }

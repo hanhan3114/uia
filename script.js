@@ -29,19 +29,23 @@ setInterval(function () {
 }, 20);
 
 // switch mode
-let button = document.querySelector('#modebtn')
-let isDark=false
+let button = document.querySelector('#modebtn');
 
-button.addEventListener('click',function(){
-    if (isDark==false){
-        document.body.classList.add('dark')
-        isDark=true
+// load saved mode
+if (localStorage.getItem("mode") === "dark") {
+    document.body.classList.add("dark");
+}
+
+button.addEventListener('click', function () {
+    document.body.classList.toggle('dark');
+
+    // save state
+    if (document.body.classList.contains('dark')) {
+        localStorage.setItem("mode", "dark");
+    } else {
+        localStorage.setItem("mode", "light");
     }
-    else{
-        document.body.classList.remove('dark')
-        isDark=false
-    }
-})
+});
 
 let correct = "sheep";
 
@@ -166,32 +170,31 @@ productCards.forEach(function (card) {
 
 
 // contact form
-const contact_form = document.getElementById("contact-form")
-
-contact_form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    
-    const contact_name = document.getElementById("contact-name").value
-    const contact_phone= document.getElementById("contact-phone").value
-    const contact_email = document.getElementById("contact-email").value
-    const contact_message = document.getElementById("contact-message").value
-
-    try{
-        await addDoc(collection(db, "contact"),{
-            name: contact_name,
-            phone: contact_phone,
-            email: contact_email,
-            message: contact_message,
-            createdAt: serverTimestamp()
-        })
-        alert("Message sent successfully!")
-        contact_form.reset()
-    }
-    catch (error){
-        console.error(" Error saving message: ",error);
-        alert("Something went wrong");
-    }
-})
+const contact_form = document.getElementById("contact-form");
+if(contact_form){
+    contact_form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const contact_name = document.getElementById("contact-name").value;
+        const contact_phone = document.getElementById("contact-phone").value;
+        const contact_email = document.getElementById("contact-email").value;
+        const contact_message = document.getElementById("contact-message").value;
+        try{
+            await addDoc(collection(db, "contact"), {
+                name: contact_name,
+                phone: contact_phone,
+                email: contact_email,
+                message: contact_message,
+                createdAt: serverTimestamp()
+            });
+            alert("Message sent successfully!");
+            contact_form.reset();
+        }
+        catch(error){
+            console.error(error);
+            alert(error.message);
+        }
+    });
+}
 
 
 
@@ -304,29 +307,44 @@ function updateCount(){
 }
 
 // buy products
-document.getElementById("order-form").addEventListener("submit",async(e)=>{
-    e.preventDefault();
-
-    if(cart.length===0) return alert("Cart empty!");
-
-    let total=cart.reduce((s,i)=>s+i.price*i.quantity,0);
-
-    await addDoc(collection(db,"orders"),{
-        customerName: cus_name,
-        customerPhone: phone,
-        customerAddress: address,
-        items: cart,
-        totalPrice: total,
-        createdAt: serverTimestamp()
+const orderForm = document.getElementById("order-form");
+if(orderForm){
+    orderForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if(cart.length === 0){
+            alert("Cart empty!");
+            return;
+        }
+        const cus_name = document.getElementById("customer-name").value;
+        const phone = document.getElementById("customer-phone").value;
+        const address = document.getElementById("customer-address").value;
+        const note = document.getElementById("customer-note").value;
+        let total = cart.reduce((sum, item) => {
+            return sum + item.price * item.quantity;
+        }, 0);
+        try{
+            await addDoc(collection(db, "orders"), {
+                customerName: cus_name,
+                customerPhone: phone,
+                customerAddress: address,
+                customerNote: note,
+                items: cart,
+                totalPrice: total,
+                createdAt: serverTimestamp()
+            });
+            alert("Order success!");
+            cart = [];
+            updateCount();
+            renderCart();
+            modal.classList.remove("show");
+            orderForm.reset();
+        }
+        catch(error){
+            console.error(error);
+            alert(error.message);
+        }
     });
-
-    alert("Order success!");
-
-    cart=[];
-    updateCount();
-    renderCart();
-    modal.classList.remove("show");
-});
+}
 
 
 
