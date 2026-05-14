@@ -68,6 +68,7 @@ if (localStorage.getItem("sitePassword") !== "verified"){
     login();
 }
 
+// class product
 class Product {
     constructor(id, name, price, description) {
         this.id = id;
@@ -89,55 +90,55 @@ const products = [
     new Product(
         1,
         "Couple Sheep",
-        "$120",
+        120,
         "A cute pair of sheep, perfect for couples or gifts."
     ),
     new Product(
         2,
         "Fat Sheep",
-        "$60",
+        60,
         "A soft and chubby sheep that kids love to hug."
     ),
     new Product(
         3,
         "Yellow Sheep",
-        "$65",
+        65,
         "A bright yellow sheep with a cheerful design."
     ),
     new Product(
         4,
         "Ratatouille",
-        "$120",
+        120,
         "A cute rat, a tiny rat, a giant hug.."
     ),
     new Product(
         5,
         "Tiny rat",
-        "$60",
+        60,
         "A little friend for a big bond."
     ),
     new Product(
         6,
         "Super big rat",
-        "$65",
+        65,
         "Round, fluffy, and totally lovely."
     ),
     new Product(
         7,
         "Small deer",
-        "$120",
+        120,
         "Little deer, big warmth."
     ),
     new Product(
         8,
         "Brown deer",
-        "$60",
+        60,
         "Sweet as chocolate, soft as this brown deer."
     ),
     new Product(
         9,
         "Big deer",
-        "$65",
+        65,
         "A big round hug in a little deer."
     )
 ]
@@ -191,6 +192,141 @@ contact_form.addEventListener("submit", async (e) => {
         alert("Something went wrong");
     }
 })
+
+
+
+let cart = [];
+
+const modal = document.getElementById("cart-modal");
+const box = document.getElementById("cart-items");
+const totalBox = document.getElementById("total-price");
+const count = document.getElementById("cart-count");
+
+// open cart
+document.getElementById("cartbtn").onclick = () => {
+    modal.classList.add("show");
+    renderCart();
+};
+
+// close cart
+document.getElementById("close").onclick = () => {
+    modal.classList.remove("show");
+};
+
+// add product to cart
+document.querySelectorAll(".add-cart").forEach(btn=>{
+    btn.onclick=()=>{
+        const id=Number(btn.dataset.id);
+        const p=products.find(x=>x.id===id);
+
+        const item=cart.find(i=>i.id===id);
+
+        if(item) item.quantity++;
+        else cart.push({...p,quantity:1});
+
+        updateCount();
+    };
+});
+
+// descrease cart
+function decrease(id){
+    const item=cart.find(i=>i.id===id);
+    if(!item) return;
+
+    item.quantity--;
+    if(item.quantity<=0){
+        cart=cart.filter(i=>i.id!==id);
+    }
+
+    renderCart();
+    updateCount();
+}
+
+// increase cart
+function increase(id){
+    const item=cart.find(i=>i.id===id);
+    if(item){
+        item.quantity++;
+        renderCart();
+        updateCount();
+    }
+}
+
+window.decrease=decrease;
+window.increase=increase;
+
+// render cart
+function renderCart() {
+    const box = document.getElementById("cart-items");
+    const totalBox = document.getElementById("total-price");
+
+    box.innerHTML = "";
+
+    let grandTotal = 0;
+
+    cart.forEach(item => {
+        const itemTotal = Number(item.price) * item.quantity;
+        grandTotal += itemTotal;
+
+        box.innerHTML += `
+            <div class="cart-item">
+
+                <div>
+                    <strong>${item.name}</strong>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:10px;">
+
+                    <button onclick="decrease(${item.id})">➖</button>
+
+                    <span>${item.quantity}</span>
+
+                    <button onclick="increase(${item.id})">➕</button>
+
+                </div>
+
+                <div>
+                    $${itemTotal}
+                </div>
+
+            </div>
+        `;
+    });
+
+    totalBox.innerText = "Total: $" + Number(grandTotal);
+}
+
+// count product quantity
+function updateCount(){
+    let c=0;
+    cart.forEach(i=>c+=i.quantity);
+    count.innerText=c;
+}
+
+// buy products
+document.getElementById("order-form").addEventListener("submit",async(e)=>{
+    e.preventDefault();
+
+    if(cart.length===0) return alert("Cart empty!");
+
+    let total=cart.reduce((s,i)=>s+i.price*i.quantity,0);
+
+    await addDoc(collection(db,"orders"),{
+        customerName: cus_name,
+        customerPhone: phone,
+        customerAddress: address,
+        items: cart,
+        totalPrice: total,
+        createdAt: serverTimestamp()
+    });
+
+    alert("Order success!");
+
+    cart=[];
+    updateCount();
+    renderCart();
+    modal.classList.remove("show");
+});
 
 
 
