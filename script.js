@@ -1,21 +1,22 @@
 // FIREBASE IMPORTS
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDKUsRdorj8eXDfI8mloVy5zZVZl4-K8oo",
-  authDomain: "dori-sheep.firebaseapp.com",
-  databaseURL: "https://dori-sheep-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "dori-sheep",
-  storageBucket: "dori-sheep.firebasestorage.app",
-  messagingSenderId: "293735754391",
-  appId: "1:293735754391:web:9169bda0d24bea935997d2",
-  measurementId: "G-6W9Q89X4CW"
+  apiKey: "AIzaSyBhlTrQ7m6PcJc6v8dVn234MAyMC4x7nwU",
+  authDomain: "hannah-dori-sheep.firebaseapp.com",
+  projectId: "hannah-dori-sheep",
+  storageBucket: "hannah-dori-sheep.firebasestorage.app",
+  messagingSenderId: "872169751878",
+  appId: "1:872169751878:web:04552a3006f17efded5147",
+  measurementId: "G-L678H10GKY"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 // Logo animation
@@ -179,7 +180,7 @@ if(contact_form){
         const contact_email = document.getElementById("contact-email").value;
         const contact_message = document.getElementById("contact-message").value;
         try{
-            await addDoc(collection(db, "contact"), {
+            await addDoc(collection(db, "contacts"), {
                 name: contact_name,
                 phone: contact_phone,
                 email: contact_email,
@@ -273,25 +274,17 @@ function renderCart() {
 
         box.innerHTML += `
             <div class="cart-item">
-
                 <div>
                     <strong>${item.name}</strong>
                 </div>
-
                 <div style="display:flex; align-items:center; gap:10px;">
-
                     <button onclick="decrease(${item.id})">➖</button>
-
                     <span>${item.quantity}</span>
-
                     <button onclick="increase(${item.id})">➕</button>
-
                 </div>
-
                 <div>
                     $${itemTotal}
                 </div>
-
             </div>
         `;
     });
