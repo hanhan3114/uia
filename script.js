@@ -5,13 +5,14 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebas
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyBhlTrQ7m6PcJc6v8dVn234MAyMC4x7nwU",
-  authDomain: "hannah-dori-sheep.firebaseapp.com",
-  projectId: "hannah-dori-sheep",
-  storageBucket: "hannah-dori-sheep.firebasestorage.app",
-  messagingSenderId: "872169751878",
-  appId: "1:872169751878:web:04552a3006f17efded5147",
-  measurementId: "G-L678H10GKY"
+  apiKey: "AIzaSyDKUsRdorj8eXDfI8mloVy5zZVZl4-K8oo",
+  authDomain: "dori-sheep.firebaseapp.com",
+  databaseURL: "https://dori-sheep-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "dori-sheep",
+  storageBucket: "dori-sheep.firebasestorage.app",
+  messagingSenderId: "293735754391",
+  appId: "1:293735754391:web:9169bda0d24bea935997d2",
+  measurementId: "G-6W9Q89X4CW"
 };
 
 // Initialize Firebase
